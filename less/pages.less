@@ -1,0 +1,161 @@
+@color-base-blue: #3fa7dc;
+@color-bg: #f1f1f1;
+
+@color-blue: #293c55;
+@color-blue-darker: #277eab;
+@color-blue-lighter: #61a0a8;
+
+@color-red: #aa314d;
+@color-green: #91c7ae;
+
+.clearfix { zoom: 1; }
+.clearfix:before { content: ""; display: table; }
+.clearfix:after { content: ""; display: table; clear: both; }
+
+.wrapper { position: relative; margin: 0 auto; width: 100%; max-width: 750px; height: 100%; overflow: hidden; }
+.header { position: absolute; top: 0; left: 0; width: 100%; height: 50px; line-height: 50px; background-color: @color-base-blue;
+	.header-left, .header-right { position: absolute; top: 15px; width: 20px; height: 20px; }
+	.header-left {  left: 10px;
+		&.icon-back { background: url(../img/icon-back.png) no-repeat center; background-size: contain; }
+	}
+	.header-right { right: 10px; }
+	> h3 { position: absolute; left: 30px; right: 30px; height: 50px; line-height: 50px; font-size: 18px; color: #fff; text-align: center; }
+}
+
+.content { position: absolute; overflow-y: scroll; top: 50px; left: 0; right: 0; bottom: 50px; background-color: @color-bg; }
+
+.footer { position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; }
+.footer-sty01 { background-color: @color-base-blue;
+	> ul {
+		> li { float: left; box-sizing: border-box; width: 25%; height: 50px; line-height: 50px; border-right: 1px solid @color-blue-darker;
+			> a { display: block; color: #fff; font-size: 14px; text-align: center; }
+		}
+	}
+}
+
+.icon-next { position: absolute; width: 20px; height: 20px; background: url(../img/icon-next.png) no-repeat center center; background-size: contain; }
+.icon-bottom { position: absolute; width: 14px; height: 14px; top: 10px; right: 10px; background: url(../img/icon-bottom.png) no-repeat center; background-size: contain; }
+
+.dotted-line { border: 0; border-top: 1px dashed #ccc; }
+
+.index-content {  }
+
+.notice-content { padding: 10px;
+	> ul { margin-top: 10px;
+		> li { border-radius: 4px; background-color: #fff; margin-bottom: 10px;
+			.p01 { padding: 10px;
+				.l01 {
+					> p { line-height: 20px; font-size: 14px; color: #111; }
+					> h5 { line-height: 16px; font-size: 12px; color: #999; }
+					> h3 { line-height: 60px; font-size: 22px; text-align: center; color: #111; }
+
+				}
+				.l02 { padding: 4px 0 10px;
+					p { margin-top: 12px; line-height: 14px; font-size: 12px;
+						> em { float: left; width: 60px; color: #999; }
+						> span { float: left; width: calc(~"100% - 80px"); line-height: 14px;
+							&.notice-info { color: @color-base-blue; }
+							&.notice-main { color: @color-red; }
+							&.notice-detail { color: #111; }
+						}
+					}
+				}
+			}
+			.p02 { height: 34px; line-height: 34px; border-top: 1px solid #f1f1f1;
+				> a { position: relative; display: block; padding: 0 10px; color: #111; font-size: 14px;
+					.icon-next { top: 7px; right: 10px; }
+				}
+			}
+		}
+	}
+}
+
+.noticedetail-content { padding: 10px; background-color: #fff;
+	> h3 { text-align: center; font-size: 18px; }
+	> p { margin-top: 12px; line-height: 16px; font-size: 14px;
+		> em { float: left; width: 60px; color: #999; }
+		> span { float: left; width: calc(~"100% - 80px"); color: #333; }
+	}
+} 
+
+.record-content {
+	> div {
+		> h3 { line-height: 26px; text-align: center; font-size: 16px; }
+		> div { position: relative; width: 100%; height: calc(~"100% - 26px"); background-color: #fff;
+			> a { position: absolute; z-index: 10; width: 100%; height: 100%; }
+			> div { width: 100%; height: 100%; }
+		}
+	}
+	.p01 { position: absolute; top: 10px; left: 10px; width: calc(~"50% - 15px"); height: calc(~"50% - 15px"); }
+	.p02 { position: absolute; bottom: 10px; left: 10px; width: calc(~"50% - 15px"); height: calc(~"50% - 15px"); }
+	.p03 { position: absolute; top: 10px; right: 10px; width: calc(~"50% - 15px"); height: calc(~"100% - 20px"); }
+}
+
+.dayrecord-content { padding: 10px; background-color: #fff;
+	.dayrecord { height: 220px; }
+	.dayrecord-list { margin-top: 10px;
+		.dayrecord-item { margin-top: -1px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;
+			.dayrecord-title { position: relative; line-height: 34px; font-size: 14px; }
+			> ul { display: none; padding: 4px 0 4px 10px; border-top: 1px dotted #ddd;
+				> li { position: relative; line-height: 24px;
+					> a { font-size: 12px;
+						> em { color: #999; }
+						> span { position: absolute; top: 0; right: 30px; }
+						.icon-next { width: 14px; height: 14px; right: 10px; top: 5px; }
+					}
+				}
+			}
+		}
+
+	}
+}
+
+.weekrecord-content { padding: 10px; background-color: #fff;
+	.weekrecord { height: 400px; }
+	.weekrecord-list {
+		> table { width: 100%; line-height: 24px; text-align: center;
+			> thead { font-size: 14px; background-color: #f1f1f1; }
+			> tbody {
+				> tr:nth-child(even) { background-color: #f1f1f1; }
+				th { font-size: 14px; }
+				td { font-size: 12px; }
+			}
+		}
+	}
+}
+
+.monthrecord-content { padding: 10px; background-color: #fff;
+	.monthrecord { height: 600px; }
+	.monthrecord-list {
+		> table { width: 100%; line-height: 24px; text-align: center;
+			> thead { font-size: 14px; background-color: #f1f1f1; }
+			> tbody {
+				> tr:nth-child(even) { background-color: #f1f1f1; }
+				th { font-size: 14px; }
+				td { font-size: 12px; }
+			}
+		}
+	}
+}
+
+.equipment-content { padding: 10px; background-color: #fff;
+	.equipment-list {
+		.equipment-item { margin-top: -1px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;
+			.equipment-title { position: relative; line-height: 34px; font-size: 14px; }
+			> ul { display: none; padding: 4px 0 4px 10px; border-top: 1px dotted #ddd;
+				> li { position: relative; line-height: 24px;
+					> a { font-size: 12px;
+						> em { color: #999; }
+						> span { position: absolute; top: 0; right: 30px; }
+						.icon-next { width: 14px; height: 14px; right: 10px; top: 5px; }
+					}
+				}
+			}
+		}
+
+	}
+}
+
+.personal-content {
+	
+}

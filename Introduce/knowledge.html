@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta http-equiv="Cache-Control" content="max-age=14400">
+    <title>知识库</title>
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="css/knowledge.css" />
+    <script src="../js/jquery-2.2.1.js"></script>
+    <script src="../js/common.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <a href="javascript:;" class="btn-back"></a>
+            <h3>知识库</h3>
+        </div>
+        <div class="content intro-details">
+            <div class="keyword">
+                <h4><i class="icon-artical"></i>热门文章分类</h4>
+                <ul class="clearfix" id="keyword"></ul>
+            </div>
+            <div class="artical-list">
+                <ul id="articalList" data-id="0" data-page="0">
+<!--                     <li>
+                        <h4 class="title">这里是题目</h4>
+                        <p class="author clearfix">
+                            <span>作者：<i>11</i></span>
+                            <em>发表时间：</em>
+                        </p>
+                        <div class="description">
+                            <img src="" class="image" alt="">
+                            <a href="javascript:;" class="show-on">显示全部</a>
+                        </div>
+                        <div class="complete">
+                            <img src="" class="image" alt="">
+                            <div href="javascript:;" class="show-off"><i class="icon-top"></i>收起</div>
+                        </div>
+                    </li> -->
+                </ul>
+                <div class="load-list" id="loadArtical" data-status="0">
+                    <span>点击加载更多数据</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/pages.js"></script>
+    <script>
+    toGetCategory();
+    toGetArtical();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+.content {
+  height: calc(100% - 50px);
+}
+.intro-details {
+  padding: 0 10px;
+  background-color: #fff;
+}
+.intro-details .keyword > h4 {
+  height: 34px;
+  line-height: 34px;
+  color: #999;
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+.intro-details .keyword > h4 .icon-artical {
+  margin-right: 4px;
+  padding: 0 7px;
+  background: url(../img/icon-artical.png) no-repeat center;
+  background-size: contain;
+}
+.intro-details .keyword > ul {
+  padding: 18px 0 8px;
+  border-bottom: 1px solid #ddd;
+}
+.intro-details .keyword > ul > li {
+  float: left;
+  margin: 0 10px 10px 0;
+  padding: 0 10px;
+  line-height: 24px;
+  font-size: 14px;
+  color: #48cfad;
+  border: 1px solid #7fddc6;
+  border-radius: 12px;
+}
+.intro-details .keyword > ul > li.active {
+  color: #fff;
+  background-color: #48cfad;
+  border-color: #48cfad;
+}
+.intro-details .artical-list > ul > li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+.intro-details .artical-list > ul > li .title {
+  height: 34px;
+  line-height: 34px;
+  color: #48cfad;
+  font-size: 16px;
+  font-weight: bold;
+}
+.intro-details .artical-list > ul > li .author {
+  margin-bottom: 4px;
+  height: 12px;
+  line-height: 12px;
+  font-size: 12px;
+  color: #999;
+}
+.intro-details .artical-list > ul > li .author > span {
+  float: left;
+}
+.intro-details .artical-list > ul > li .author > span > i {
+  color: #333;
+}
+.intro-details .artical-list > ul > li .author > em {
+  float: right;
+}
+.intro-details .artical-list > ul > li > div {
+  line-height: 20px;
+  color: #666;
+  font-size: 14px;
+}
+.intro-details .artical-list > ul > li .description .pic {
+  float: left;
+  margin: 1px 10px 5px 0;
+  width: 200px;
+  height: 112px;
+}
+.intro-details .artical-list > ul > li .description .show-on {
+  color: #48cfad;
+}
+.intro-details .artical-list > ul > li .complete {
+  display: none;
+}
+.intro-details .artical-list > ul > li .complete img {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+}
+.intro-details .artical-list > ul > li .complete .show-off {
+  float: right;
+  color: #999;
+  font-size: 14px;
+}
+.intro-details .artical-list > ul > li .complete .show-off .icon-top {
+  margin-right: 4px;
+  padding: 0 6px;
+  background: url(../img/icon-top.png) no-repeat center;
+  background-size: contain;
+}
+.intro-details .artical-list > ul > li.expand .description {
+  display: none;
+}
+.intro-details .artical-list > ul > li.expand .complete {
+  display: block;
+}
+/*# sourceMappingURL=knowledge.css.map */
