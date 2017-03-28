@@ -24,9 +24,9 @@
         </div>
         <div class="content dayrecord-content">
             <div class="dayrecord" id="dayRecord"></div>
-            <div class="dayrecord-list">
-                <div class="dayrecord-item">
-                    <h3 class="dayrecord-title" data-status="0">等级1<i class="icon-bottom"></i></h3>
+            <div class="dropdown-list">
+                <div class="dropdown-item">
+                    <h3 class="title" data-status="0">等级1<i class="icon-bottom"></i></h3>
                     <ul>
                         <li>
                             <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
@@ -36,8 +36,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="dayrecord-item">
-                    <h3 class="dayrecord-title" data-status="0">等级2<i class="icon-bottom"></i></h3>
+                <div class="dropdown-item">
+                    <h3 class="title" data-status="0">等级2<i class="icon-bottom"></i></h3>
                     <ul>
                         <li>
                             <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
@@ -47,8 +47,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="dayrecord-item">
-                    <h3 class="dayrecord-title" data-status="0">等级3<i class="icon-bottom"></i></h3>
+                <div class="dropdown-item">
+                    <h3 class="title" data-status="0">等级3<i class="icon-bottom"></i></h3>
                     <ul>
                         <li>
                             <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
@@ -58,8 +58,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="dayrecord-item">
-                    <h3 class="dayrecord-title" data-status="0">等级4<i class="icon-bottom"></i></h3>
+                <div class="dropdown-item">
+                    <h3 class="title" data-status="0">等级4<i class="icon-bottom"></i></h3>
                     <ul>
                         <li>
                             <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
@@ -74,7 +74,7 @@
         <div class="footer footer-sty01">
             <ul class="clearfix">
                 <li><a href="../index.html">首页</a></li>
-                <li><a href="notification.html">通知</a></li>
+                <li><a href="alertList.html">通知</a></li>
                 <li><a href="record.html">报告</li>
                 <li><a href="personalInfo.html">我的</li>
             </ul>
@@ -83,15 +83,6 @@
     <script src="../js/common.js"></script>
     <script src="../js/pages.js"></script>
     <script type="text/javascript">
-        $('.dayrecord-list').on('click', '.dayrecord-title', function() {
-            if ($(this).attr('data-status') == '0') {
-                $(this).siblings('ul').slideDown(200);
-                $(this).attr('data-status', '1');
-            } else {
-                $(this).siblings('ul').slideUp(200);
-                $(this).attr('data-status', '0');
-            }
-        });
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('dayRecord'));
 

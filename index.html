@@ -21,37 +21,48 @@
             <h3>首页</h3>
         </div>
         <div class="content equipment-content">
-            <div class="equipment-list">
-                <div class="equipment-item">
-                    <h3 class="equipment-title" data-status="0">分类1<i class="icon-bottom"></i></h3>
+            <div class="dropdown-list">
+                <div class="dropdown-item">
+                    <h3 class="title" data-status="0">等级1<i class="icon-bottom"></i></h3>
                     <ul>
                         <li>
-                            <a href="javascript:;"><em>型号</em><span>报警数：</span><i class="icon-next"></i></a>
+                            <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
                         </li>
                         <li>
-                            <a href="javascript:;"><em>型号</em><span>报警数：</span><i class="icon-next"></i></a>
+                            <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
                         </li>
                     </ul>
                 </div>
-                <div class="equipment-item">
-                    <h3 class="equipment-title" data-status="0">分类2<i class="icon-bottom"></i></h3>
+                <div class="dropdown-item">
+                    <h3 class="title" data-status="0">等级2<i class="icon-bottom"></i></h3>
                     <ul>
                         <li>
-                            <a href="javascript:;"><em>型号</em><span>报警数：</span><i class="icon-next"></i></a>
+                            <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
                         </li>
                         <li>
-                            <a href="javascript:;"><em>型号</em><span>报警数：</span><i class="icon-next"></i></a>
+                            <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
                         </li>
                     </ul>
                 </div>
-                <div class="equipment-item">
-                    <h3 class="equipment-title" data-status="0">分类3<i class="icon-bottom"></i></h3>
+                <div class="dropdown-item">
+                    <h3 class="title" data-status="0">等级3<i class="icon-bottom"></i></h3>
                     <ul>
                         <li>
-                            <a href="javascript:;"><em>型号</em><span>报警数：</span><i class="icon-next"></i></a>
+                            <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
                         </li>
                         <li>
-                            <a href="javascript:;"><em>型号</em><span>报警数：</span><i class="icon-next"></i></a>
+                            <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown-item">
+                    <h3 class="title" data-status="0">等级4<i class="icon-bottom"></i></h3>
+                    <ul>
+                        <li>
+                            <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -60,7 +71,7 @@
         <div class="footer footer-sty01">
             <ul class="clearfix">
                 <li><a href="./">首页</a></li>
-                <li><a href="Views/notification.html">通知</a></li>
+                <li><a href="Views/alertList.html">通知</a></li>
                 <li><a href="Views/record.html">报告</li>
                 <li><a href="Views/personalInfo.html">我的</li>
             </ul>
@@ -69,15 +80,7 @@
     <script src="js/common.js"></script>
     <script src="js/pages.js"></script>
     <script>
-        $('.equipment-list').on('click', '.equipment-title', function() {
-            if ($(this).attr('data-status') == '0') {
-                $(this).siblings('ul').slideDown(200);
-                $(this).attr('data-status', '1');
-            } else {
-                $(this).siblings('ul').slideUp(200);
-                $(this).attr('data-status', '0');
-            }
-        });
+        path = 'Views/';
     </script>
 </body>
 

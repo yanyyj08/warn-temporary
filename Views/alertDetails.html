@@ -19,31 +19,15 @@
     <div class="wrapper">
         <div class="header">
             <a class="header-left icon-back"></a>
-            <h3>通知</h3>
+            <h3 id="currentEquipmentName"></h3>
         </div>
-        <div class="content noticedetail-content">
-            <h3>这里是标题</h3>
-            <p class="clearfix">
-                <em>其他：</em>
-                <span>其他内容</span> 
-            </p>
-            <p class="clearfix">
-                <em>其他：</em>
-                <span>其他内容</span> 
-            </p>
-            <p class="clearfix">
-                <em>其他：</em>
-                <span>其他内容</span> 
-            </p>
-            <p class="clearfix">
-                <em>其他：</em>
-                <span>其他内容</span> 
-            </p>
+        <div class="content alertdetail-content" id="alertDetails">
+            
         </div>
         <div class="footer footer-sty01">
             <ul class="clearfix">
                 <li><a href="../index.html">首页</a></li>
-                <li><a href="notification.html">通知</a></li>
+                <li><a href="alertList.html">通知</a></li>
                 <li><a href="record.html">报告</li>
                 <li><a href="personalInfo.html">我的</li>
             </ul>
@@ -51,6 +35,9 @@
     </div>
     <script src="../js/common.js"></script>
     <script src="../js/pages.js"></script>
+    <script>
+        toGetAlertDetails();
+    </script>
 </body>
 
 </html>

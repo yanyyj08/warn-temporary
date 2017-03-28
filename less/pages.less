@@ -8,6 +8,8 @@
 @color-red: #aa314d;
 @color-green: #91c7ae;
 
+@color-border: #ddd;
+
 .clearfix { zoom: 1; }
 .clearfix:before { content: ""; display: table; }
 .clearfix:after { content: ""; display: table; clear: both; }
@@ -18,7 +20,9 @@
 	.header-left {  left: 10px;
 		&.icon-back { background: url(../img/icon-back.png) no-repeat center; background-size: contain; }
 	}
-	.header-right { right: 10px; }
+	.header-right { right: 10px;
+		&.icon-menu { background: url(../img/icon-menu.png) no-repeat center; background-size: contain; }
+	}
 	> h3 { position: absolute; left: 30px; right: 30px; height: 50px; line-height: 50px; font-size: 18px; color: #fff; text-align: center; }
 }
 
@@ -38,42 +42,59 @@
 
 .dotted-line { border: 0; border-top: 1px dashed #ccc; }
 
-.index-content {  }
-
-.notice-content { padding: 10px;
-	> ul { margin-top: 10px;
-		> li { border-radius: 4px; background-color: #fff; margin-bottom: 10px;
-			.p01 { padding: 10px;
-				.l01 {
-					> p { line-height: 20px; font-size: 14px; color: #111; }
-					> h5 { line-height: 16px; font-size: 12px; color: #999; }
-					> h3 { line-height: 60px; font-size: 22px; text-align: center; color: #111; }
-
-				}
-				.l02 { padding: 4px 0 10px;
-					p { margin-top: 12px; line-height: 14px; font-size: 12px;
-						> em { float: left; width: 60px; color: #999; }
-						> span { float: left; width: calc(~"100% - 80px"); line-height: 14px;
-							&.notice-info { color: @color-base-blue; }
-							&.notice-main { color: @color-red; }
-							&.notice-detail { color: #111; }
-						}
-					}
-				}
-			}
-			.p02 { height: 34px; line-height: 34px; border-top: 1px solid #f1f1f1;
-				> a { position: relative; display: block; padding: 0 10px; color: #111; font-size: 14px;
-					.icon-next { top: 7px; right: 10px; }
+ // 下拉菜单
+.dropdown-list {
+	.dropdown-item { margin-top: -1px; border-top: 1px solid #ddd; border-bottom: 1px solid @color-border;
+		.title { position: relative; line-height: 34px; font-size: 14px; }
+		> ul { display: none; padding: 4px 0 4px 10px; border-top: 1px dotted #ddd;
+			> li { position: relative; line-height: 24px;
+				> a { font-size: 12px;
+					> em { color: #999; }
+					> span { position: absolute; top: 0; right: 30px; }
+					.icon-next { width: 14px; height: 14px; right: 10px; top: 5px; }
 				}
 			}
 		}
 	}
 }
 
-.noticedetail-content { padding: 10px; background-color: #fff;
+.alert-content { padding: 10px;
+	.alert-filter { position: absolute; top: 0; left: 0; right: 0; padding: 10px; border-top: 1px solid @color-border; background-color: #3fa7dc;
+		> p { line-height: 24px; font-size: 14px; color: #fff; }
+	}
+	> ul { margin-top: 10px;
+		> li { border-radius: 4px; background-color: #fff; margin-bottom: 10px;
+			.p01 { padding: 10px 10px 4px;
+				.l01 {
+					> p { line-height: 20px; font-size: 14px; color: #111; }
+					> h5 { line-height: 16px; font-size: 12px; color: #999; }
+					> h3 { line-height: 24px; font-size: 16px; text-align: center; color: #111; }
+
+				}
+				.l02 {
+					p { margin-top: 4px; line-height: 14px; font-size: 12px;
+						> em { float: left; width: 60px; color: #999; }
+						> span { float: left; width: calc(~"100% - 80px"); line-height: 14px;
+							&.alert-info { color: @color-base-blue; }
+							&.alert-main { color: @color-red; }
+							&.alert-detail { color: #111; }
+						}
+					}
+				}
+			}
+			.p02 { height: 30px; line-height: 30px; border-top: 1px solid #f1f1f1;
+				> a { position: relative; display: block; padding: 0 10px; color: #111; font-size: 12px;
+					.icon-next { top: 8px; right: 10px; width: 14px; height: 14px; }
+				}
+			}
+		}
+	}
+}
+
+.alertdetail-content { padding: 10px; background-color: #fff;
 	> h3 { text-align: center; font-size: 18px; }
 	> p { margin-top: 12px; line-height: 16px; font-size: 14px;
-		> em { float: left; width: 60px; color: #999; }
+		> em { float: left; width: 70px; color: #999; text-align: right; }
 		> span { float: left; width: calc(~"100% - 80px"); color: #333; }
 	}
 } 
@@ -93,21 +114,7 @@
 
 .dayrecord-content { padding: 10px; background-color: #fff;
 	.dayrecord { height: 220px; }
-	.dayrecord-list { margin-top: 10px;
-		.dayrecord-item { margin-top: -1px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;
-			.dayrecord-title { position: relative; line-height: 34px; font-size: 14px; }
-			> ul { display: none; padding: 4px 0 4px 10px; border-top: 1px dotted #ddd;
-				> li { position: relative; line-height: 24px;
-					> a { font-size: 12px;
-						> em { color: #999; }
-						> span { position: absolute; top: 0; right: 30px; }
-						.icon-next { width: 14px; height: 14px; right: 10px; top: 5px; }
-					}
-				}
-			}
-		}
-
-	}
+	.dropdown-list { margin-top: 10px; }
 }
 
 .weekrecord-content { padding: 10px; background-color: #fff;
@@ -139,21 +146,7 @@
 }
 
 .equipment-content { padding: 10px; background-color: #fff;
-	.equipment-list {
-		.equipment-item { margin-top: -1px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;
-			.equipment-title { position: relative; line-height: 34px; font-size: 14px; }
-			> ul { display: none; padding: 4px 0 4px 10px; border-top: 1px dotted #ddd;
-				> li { position: relative; line-height: 24px;
-					> a { font-size: 12px;
-						> em { color: #999; }
-						> span { position: absolute; top: 0; right: 30px; }
-						.icon-next { width: 14px; height: 14px; right: 10px; top: 5px; }
-					}
-				}
-			}
-		}
-
-	}
+	.dropdown-list {}
 }
 
 .personal-content {

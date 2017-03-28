@@ -44,6 +44,10 @@
 .header .header-right {
   right: 10px;
 }
+.header .header-right.icon-menu {
+  background: url(../img/icon-menu.png) no-repeat center;
+  background-size: contain;
+}
 .header > h3 {
   position: absolute;
   left: 30px;
@@ -107,98 +111,148 @@
   border: 0;
   border-top: 1px dashed #ccc;
 }
-.notice-content {
+.dropdown-list .dropdown-item {
+  margin-top: -1px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #dddddd;
+}
+.dropdown-list .dropdown-item .title {
+  position: relative;
+  line-height: 34px;
+  font-size: 14px;
+}
+.dropdown-list .dropdown-item > ul {
+  display: none;
+  padding: 4px 0 4px 10px;
+  border-top: 1px dotted #ddd;
+}
+.dropdown-list .dropdown-item > ul > li {
+  position: relative;
+  line-height: 24px;
+}
+.dropdown-list .dropdown-item > ul > li > a {
+  font-size: 12px;
+}
+.dropdown-list .dropdown-item > ul > li > a > em {
+  color: #999;
+}
+.dropdown-list .dropdown-item > ul > li > a > span {
+  position: absolute;
+  top: 0;
+  right: 30px;
+}
+.dropdown-list .dropdown-item > ul > li > a .icon-next {
+  width: 14px;
+  height: 14px;
+  right: 10px;
+  top: 5px;
+}
+.alert-content {
   padding: 10px;
 }
-.notice-content > ul {
+.alert-content .alert-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  border-top: 1px solid #dddddd;
+  background-color: #3fa7dc;
+}
+.alert-content .alert-filter > p {
+  line-height: 24px;
+  font-size: 14px;
+  color: #fff;
+}
+.alert-content > ul {
   margin-top: 10px;
 }
-.notice-content > ul > li {
+.alert-content > ul > li {
   border-radius: 4px;
   background-color: #fff;
   margin-bottom: 10px;
 }
-.notice-content > ul > li .p01 {
-  padding: 10px;
+.alert-content > ul > li .p01 {
+  padding: 10px 10px 4px;
 }
-.notice-content > ul > li .p01 .l01 > p {
+.alert-content > ul > li .p01 .l01 > p {
   line-height: 20px;
   font-size: 14px;
   color: #111;
 }
-.notice-content > ul > li .p01 .l01 > h5 {
+.alert-content > ul > li .p01 .l01 > h5 {
   line-height: 16px;
   font-size: 12px;
   color: #999;
 }
-.notice-content > ul > li .p01 .l01 > h3 {
-  line-height: 60px;
-  font-size: 22px;
+.alert-content > ul > li .p01 .l01 > h3 {
+  line-height: 24px;
+  font-size: 16px;
   text-align: center;
   color: #111;
 }
-.notice-content > ul > li .p01 .l02 {
-  padding: 4px 0 10px;
-}
-.notice-content > ul > li .p01 .l02 p {
-  margin-top: 12px;
+.alert-content > ul > li .p01 .l02 p {
+  margin-top: 4px;
   line-height: 14px;
   font-size: 12px;
 }
-.notice-content > ul > li .p01 .l02 p > em {
+.alert-content > ul > li .p01 .l02 p > em {
   float: left;
   width: 60px;
   color: #999;
 }
-.notice-content > ul > li .p01 .l02 p > span {
+.alert-content > ul > li .p01 .l02 p > span {
   float: left;
   width: calc(100% - 80px);
   line-height: 14px;
 }
-.notice-content > ul > li .p01 .l02 p > span.notice-info {
+.alert-content > ul > li .p01 .l02 p > span.alert-info {
   color: #3fa7dc;
 }
-.notice-content > ul > li .p01 .l02 p > span.notice-main {
+.alert-content > ul > li .p01 .l02 p > span.alert-main {
   color: #aa314d;
 }
-.notice-content > ul > li .p01 .l02 p > span.notice-detail {
+.alert-content > ul > li .p01 .l02 p > span.alert-detail {
   color: #111;
 }
-.notice-content > ul > li .p02 {
-  height: 34px;
-  line-height: 34px;
+.alert-content > ul > li .p02 {
+  height: 30px;
+  line-height: 30px;
   border-top: 1px solid #f1f1f1;
 }
-.notice-content > ul > li .p02 > a {
+.alert-content > ul > li .p02 > a {
   position: relative;
   display: block;
   padding: 0 10px;
   color: #111;
-  font-size: 14px;
+  font-size: 12px;
 }
-.notice-content > ul > li .p02 > a .icon-next {
-  top: 7px;
+.alert-content > ul > li .p02 > a .icon-next {
+  top: 8px;
   right: 10px;
+  width: 14px;
+  height: 14px;
 }
-.noticedetail-content {
+.alertdetail-content {
   padding: 10px;
   background-color: #fff;
 }
-.noticedetail-content > h3 {
+.alertdetail-content > h3 {
   text-align: center;
   font-size: 18px;
 }
-.noticedetail-content > p {
+.alertdetail-content > p {
   margin-top: 12px;
   line-height: 16px;
   font-size: 14px;
 }
-.noticedetail-content > p > em {
+.alertdetail-content > p > em {
   float: left;
-  width: 60px;
+  width: 70px;
   color: #999;
+  text-align: right;
 }
-.noticedetail-content > p > span {
+.alertdetail-content > p > span {
   float: left;
   width: calc(100% - 80px);
   color: #333;
@@ -252,44 +306,8 @@
 .dayrecord-content .dayrecord {
   height: 220px;
 }
-.dayrecord-content .dayrecord-list {
+.dayrecord-content .dropdown-list {
   margin-top: 10px;
-}
-.dayrecord-content .dayrecord-list .dayrecord-item {
-  margin-top: -1px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-}
-.dayrecord-content .dayrecord-list .dayrecord-item .dayrecord-title {
-  position: relative;
-  line-height: 34px;
-  font-size: 14px;
-}
-.dayrecord-content .dayrecord-list .dayrecord-item > ul {
-  display: none;
-  padding: 4px 0 4px 10px;
-  border-top: 1px dotted #ddd;
-}
-.dayrecord-content .dayrecord-list .dayrecord-item > ul > li {
-  position: relative;
-  line-height: 24px;
-}
-.dayrecord-content .dayrecord-list .dayrecord-item > ul > li > a {
-  font-size: 12px;
-}
-.dayrecord-content .dayrecord-list .dayrecord-item > ul > li > a > em {
-  color: #999;
-}
-.dayrecord-content .dayrecord-list .dayrecord-item > ul > li > a > span {
-  position: absolute;
-  top: 0;
-  right: 30px;
-}
-.dayrecord-content .dayrecord-list .dayrecord-item > ul > li > a .icon-next {
-  width: 14px;
-  height: 14px;
-  right: 10px;
-  top: 5px;
 }
 .weekrecord-content {
   padding: 10px;
@@ -344,41 +362,5 @@
 .equipment-content {
   padding: 10px;
   background-color: #fff;
-}
-.equipment-content .equipment-list .equipment-item {
-  margin-top: -1px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-}
-.equipment-content .equipment-list .equipment-item .equipment-title {
-  position: relative;
-  line-height: 34px;
-  font-size: 14px;
-}
-.equipment-content .equipment-list .equipment-item > ul {
-  display: none;
-  padding: 4px 0 4px 10px;
-  border-top: 1px dotted #ddd;
-}
-.equipment-content .equipment-list .equipment-item > ul > li {
-  position: relative;
-  line-height: 24px;
-}
-.equipment-content .equipment-list .equipment-item > ul > li > a {
-  font-size: 12px;
-}
-.equipment-content .equipment-list .equipment-item > ul > li > a > em {
-  color: #999;
-}
-.equipment-content .equipment-list .equipment-item > ul > li > a > span {
-  position: absolute;
-  top: 0;
-  right: 30px;
-}
-.equipment-content .equipment-list .equipment-item > ul > li > a .icon-next {
-  width: 14px;
-  height: 14px;
-  right: 10px;
-  top: 5px;
 }
 /*# sourceMappingURL=pages.css.map */
