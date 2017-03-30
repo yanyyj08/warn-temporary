@@ -134,16 +134,22 @@ var toDoAjax = function(param, type, url, callBack, callBackData) {
         if (this.readyState === 4) {
             if (Object.prototype.toString.call(callBack) === '[object Function]') {
                 if (callBackData) {
-                    callBack(this.responseText, callBackData);
+                    if (this.responseText) {
+                        callBack(JSON.parse(this.responseText), callBackData);
+                    } else { callBack(this.responseText, callBackData); }
                 } else {
-                    callBack(this.responseText);
+                    if (this.responseText) {
+                        callBack(JSON.parse(this.responseText));
+                    } else { callBack(this.responseText); }
                 }
             }
         }
     });
 
     xhr.open(type, url);
-    xhr.setRequestHeader('accesskey', accessKey);
+    if (accesskey) {
+        xhr.setRequestHeader('accesskey', accessKey);
+    }
     // xhr.setRequestHeader('userId', userId);
     xhr.setRequestHeader('content-type', 'application/json');
     xhr.setRequestHeader('cache-control', 'no-cache');

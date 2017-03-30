@@ -11,9 +11,11 @@
     <meta http-equiv="Cache-Control" content="max-age=14400">
     <title>通知</title>
     <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/date.css" />
     <link rel="stylesheet" href="../css/pages.css" />
     <script src="../js/jquery-2.2.1.js"></script>
-    <!-- <script src="../js/jquery.calendar.js"></script> -->
+    <script src="../js/iscroll.js"></script>
+    <script src="../js/jquery.calendar.js"></script>
 </head>
 
 <body>
@@ -21,34 +23,31 @@
         <div class="header">
             <a class="header-left icon-back"></a>
             <h3 id="currentProjectName"></h3>
-            <a class="header-right icon-menu"></a>
+            <a class="header-right icon-menu" id="showFilter" data-status="0"></a>
+        </div>
+        <div class="alert-filter">
+            <div>
+                <em>项目</em>
+                <select name="" id="chooseProject">
+                    <option value="">全部</option>
+                </select>
+            </div>
+            <div>
+                <em>故障类型</em>
+                <select name="" id="chooseLevel">
+                    <option value="">全部</option>
+                </select>
+            </div>
+            <input type="hidden" id="dateFrom" name="dateFrom">
+            <input type="hidden" id="dateTo" name="dateTo">
+            <div>
+                <a href="javascript:;" id="filterBtn">
+                    <i class="icon-search"></i>
+                </a>
+            </div>
         </div>
         <div class="content alert-content">
-<!--             <div class="alert-filter">
-                <p>
-                    <em>项目</em>
-                    <select name="" id="chooseProject">
-                        <option value="">全部</option>
-                    </select>
-                </p>
-                <p>
-                    <em>设备</em>
-                    <select name="" id="chooseEquipment">
-                        <option value="">全部</option>
-                    </select>
-                </p>
-                <p>
-                    <em>故障类型</em>
-                    <select name="" id="chooseEquipment">
-                        <option value="">全部</option>
-                    </select>
-                </p>
-                <p>
-                    <em>日期</em>
-                    <input type="text" id="calendar">
-                </p>
-                <a id="alertFilter" href="javascript:;"></a>
-            </div> -->
+            <div id="datePlugin"></div>
             <ul id="alertList"></ul>
         </div>
         <div class="footer footer-sty01">
@@ -56,14 +55,31 @@
                 <li><a href="../index.html">首页</a></li>
                 <li><a href="alertList.html">通知</a></li>
                 <li><a href="record.html">报告</li>
-                <li><a href="personalInfo.html">我的</li>
+                <li><a href="my.html">我的</li>
             </ul>
         </div>
     </div>
     <script src="../js/common.js"></script>
     <script src="../js/pages.js"></script>
     <script>
-        toGetAlertList();
+        toGetfFilterDetails();
+        $('body').on('click', '.overlay', function() {
+            $(this).attr('data-status', 0);
+            $('.alert-filter').slideUp();
+            hideOverlay();
+        });
+        $(function() {
+            var date = toGetParameter('date');
+            var level = toGetParameter('level');
+            if (date) {
+                $('#dateFrom').val(new Date(Number(date)).Format(TIMEFORMATCOMPLETE));
+                $('#dateTo').val(new Date(new Date(Number(date)).getTime() + 1000 * 60 * 60 * 24 - 1000).Format(TIMEFORMATCOMPLETE));
+            }
+            if (level) {
+                $('#chooseLevel').val(level);
+            }
+            toGetFilterInfo();
+        });
     </script>
 </body>
 

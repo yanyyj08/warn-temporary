@@ -4,6 +4,7 @@
  * element.date();
  * var today = timeFormat(new Date(), false);
  * element.val(today).attr('placeholder', today);
+ * <div id="datePlugin"></div>
  */
 (function($) {
     $.fn.date = function(options, Ycallback, Ncallback) {
