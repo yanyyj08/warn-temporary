@@ -10,7 +10,7 @@ const TIMEFORMAT = 'yyyy-MM-dd';
 const ALERTKIND = ['', '正常', '警报', '一般故障', '严重故障', '硬件失败'];
 const WEEKKIND = ['日', '一', '二', '三', '四', '五', '六'];
 
-// toGetBasicInfo();
+toGetBasicInfo();
 
 function toGetBasicInfo() {
     accessKey = toGetParameter('accesskey');

@@ -257,7 +257,9 @@
   color: #fff;
 }
 .alert-filter > div select {
-  width: 100px;
+  padding-left: 10px;
+  line-height: 20px;
+  font-size: 12px;
 }
 .alert-filter > div > a {
   position: absolute;
