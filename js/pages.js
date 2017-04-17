@@ -14,12 +14,15 @@ toGetBasicInfo();
 
 function toGetBasicInfo() {
     accessKey = toGetParameter('accesskey');
-    userId = toGetParameter('userid');  
+    userId = toGetParameter('userid');
+    alert(accessKey);
+    alert(userId);
     if (!accessKey || !userId) {
         if (!localStorage.accessKey || !localStorage.userId) {
-            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2ef322e64147298f&redirect_uri='
-                                 + encodeURI('http://jfxd.losta.net/apiv1/Auth/Wechat/Authorize')
-                                 + '&response_type=code&scope=snsapi_base&state=home#wechat_redirect';
+            var href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2ef322e64147298f&redirect_uri='
+                     + encodeURI('http://jfxd.losta.net/apiv1/Auth/Wechat/Authorize')
+                     + '&response_type=code&scope=snsapi_base&state=home#wechat_redirect';
+            window.location.href = href;
         } else {
             accessKey = localStorage.accessKey;
             userId= localStorage.userId;
@@ -607,20 +610,18 @@ $('#weekRecordDetail').on('click', 'tr', function() {
     window.location.href = 'alertList.html?date=' + $(this).attr('data-day');
 });
 
-var isPersonal = false;
-$(function() {
-	if (isPersonal) { return false; }
-	if (localStorage.projectId && localStorage.projectName) {
-		projectId = localStorage.projectId;
-		projectName = localStorage.projectName;
-		$('#currentProjectName').html(projectName);
-	} else {
-		window.location.href = path + 'my.html';
-	}
+var toResetProject = function() {
+    if (localStorage.projectId && localStorage.projectName) {
+        projectId = localStorage.projectId;
+        projectName = localStorage.projectName;
+        $('#currentProjectName').html(projectName);
+    } else {
+        window.location.href = 'Views/my.html';
+    }
 
-	if ($('#calendar').length) {
-		$('#calendar').date();
-		var today = new Date().Format(TIMEFORMAT);
-		$('#calendar').val(today).attr('placeholder', today);
-	}
-});
+    if ($('#calendar').length) {
+        $('#calendar').date();
+        var today = new Date().Format(TIMEFORMAT);
+        $('#calendar').val(today).attr('placeholder', today);
+    }
+};
