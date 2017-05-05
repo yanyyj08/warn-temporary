@@ -65,27 +65,38 @@
 
 .dotted-line { border: 0; border-top: 1px dashed #ccc; }
 
+.tabs {
+	.title { .clearfix;
+		> li { float: left; margin-right: 4px; padding: 0 10px; height: 34px; line-height: 34px; font-size: 14px; color: #999; border-top: 2px solid #fff; border-bottom: 2px solid #fff; border-top-right-radius: 4px; border-top-left-radius: 4px; background-color: #fff;
+			&.active { color: @color-base-blue; border-bottom-color: @color-base-blue; }
+		}
+	}
+}
+
  // 下拉菜单
+.line-group { display: block; padding-left: 10px; border-top: 1px solid @color-border; border-bottom: 1px solid @color-border; background-color: #fff;
+	> li { position: relative; box-sizing: border-box; line-height: 34px; border-top: 1px dotted @color-border;
+		> a { display: block; font-size: 14px;
+			> b { position: absolute; width: 14px; height: 14px; top: 10px; left: 0; background: url(../img/icon-choose-off.png) no-repeat center; background-size: contain; }
+			> em { margin-left: 20px; color: #999; }
+			> span, > samp, > small { position: absolute; top: 0; right: 30px; }
+			> samp { right: 10px; }
+			> small { right: 10px; font-size: 12px; }
+			.icon-next { width: 14px; height: 14px; right: 10px; top: 10px; }
+		}
+		&.active {
+			> a {
+				> b { background: url(../img/icon-choose-on.png) no-repeat center; background-size: contain; }
+				> em { color: @color-base-blue; }
+			}
+		}
+		&:first-child { border-top: 0; }
+	}
+}
 .dropdown-list {
 	.dropdown-item { margin-top: -1px; border-top: 1px solid #ddd; border-bottom: 1px solid @color-border;
 		.title { position: relative; padding-left: 10px; line-height: 34px; font-size: 14px; }
-		> ul { display: none; padding-left: 10px; border-top: 1px solid @color-border;
-			> li { position: relative; box-sizing: border-box; line-height: 34px; border-top: 1px dotted @color-border;
-				> a { font-size: 12px;
-					> b { position: absolute; width: 14px; height: 14px; top: 10px; left: 0; background: url(../img/icon-choose-off.png) no-repeat center; background-size: contain; }
-					> em { margin-left: 20px; color: #999; }
-					> span { position: absolute; top: 0; right: 30px; }
-					.icon-next { width: 14px; height: 14px; right: 10px; top: 10px; }
-				}
-				&.active {
-					> a {
-						> b { background: url(../img/icon-choose-on.png) no-repeat center; background-size: contain; }
-						> em { color: @color-base-blue; }
-					}
-				}
-				&:first-child { border-top: 0; }
-			}
-		}
+		> ul { .line-group; display: none; border-bottom: 0; }
 	}
 }
 
@@ -199,8 +210,14 @@
 	}
 }
 
-.equipment-content { padding: 10px; background-color: #fff;
-	.dropdown-list {}
+.equipment-content {
+	.tabs { margin-top: 10px;
+		.title {
+			> li {
+				.icon-refresh { display: inline-block; vertical-align: middle; padding: 2px; width: 16px; height: 16px; background: url('../img/icon-refresh.png') no-repeat center center; background-size: contain; background-origin: content-box; }
+			}
+		}
+	}
 }
 
 .personal-content {

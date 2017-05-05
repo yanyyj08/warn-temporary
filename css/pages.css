@@ -180,6 +180,87 @@
   border: 0;
   border-top: 1px dashed #ccc;
 }
+.tabs .title {
+  zoom: 1;
+}
+.tabs .title > li {
+  float: left;
+  margin-right: 4px;
+  padding: 0 10px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 14px;
+  color: #999;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  background-color: #fff;
+}
+.tabs .title > li.active {
+  color: #3fa7dc;
+  border-bottom-color: #3fa7dc;
+}
+.line-group {
+  display: block;
+  padding-left: 10px;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  background-color: #fff;
+}
+.line-group > li {
+  position: relative;
+  box-sizing: border-box;
+  line-height: 34px;
+  border-top: 1px dotted #dddddd;
+}
+.line-group > li > a {
+  display: block;
+  font-size: 14px;
+}
+.line-group > li > a > b {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 10px;
+  left: 0;
+  background: url(../img/icon-choose-off.png) no-repeat center;
+  background-size: contain;
+}
+.line-group > li > a > em {
+  margin-left: 20px;
+  color: #999;
+}
+.line-group > li > a > span,
+.line-group > li > a > samp,
+.line-group > li > a > small {
+  position: absolute;
+  top: 0;
+  right: 30px;
+}
+.line-group > li > a > samp {
+  right: 10px;
+}
+.line-group > li > a > small {
+  right: 10px;
+  font-size: 12px;
+}
+.line-group > li > a .icon-next {
+  width: 14px;
+  height: 14px;
+  right: 10px;
+  top: 10px;
+}
+.line-group > li.active > a > b {
+  background: url(../img/icon-choose-on.png) no-repeat center;
+  background-size: contain;
+}
+.line-group > li.active > a > em {
+  color: #3fa7dc;
+}
+.line-group > li:first-child {
+  border-top: 0;
+}
 .dropdown-list .dropdown-item {
   margin-top: -1px;
   border-top: 1px solid #ddd;
@@ -192,9 +273,13 @@
   font-size: 14px;
 }
 .dropdown-list .dropdown-item > ul {
-  display: none;
+  display: block;
   padding-left: 10px;
   border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  background-color: #fff;
+  display: none;
+  border-bottom: 0;
 }
 .dropdown-list .dropdown-item > ul > li {
   position: relative;
@@ -203,7 +288,8 @@
   border-top: 1px dotted #dddddd;
 }
 .dropdown-list .dropdown-item > ul > li > a {
-  font-size: 12px;
+  display: block;
+  font-size: 14px;
 }
 .dropdown-list .dropdown-item > ul > li > a > b {
   position: absolute;
@@ -218,10 +304,19 @@
   margin-left: 20px;
   color: #999;
 }
-.dropdown-list .dropdown-item > ul > li > a > span {
+.dropdown-list .dropdown-item > ul > li > a > span,
+.dropdown-list .dropdown-item > ul > li > a > samp,
+.dropdown-list .dropdown-item > ul > li > a > small {
   position: absolute;
   top: 0;
   right: 30px;
+}
+.dropdown-list .dropdown-item > ul > li > a > samp {
+  right: 10px;
+}
+.dropdown-list .dropdown-item > ul > li > a > small {
+  right: 10px;
+  font-size: 12px;
 }
 .dropdown-list .dropdown-item > ul > li > a .icon-next {
   width: 14px;
@@ -525,9 +620,18 @@
 .monthrecord-content .monthrecord-list > table > tbody td {
   font-size: 12px;
 }
-.equipment-content {
-  padding: 10px;
-  background-color: #fff;
+.equipment-content .tabs {
+  margin-top: 10px;
+}
+.equipment-content .tabs .title > li .icon-refresh {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 2px;
+  width: 16px;
+  height: 16px;
+  background: url('../img/icon-refresh.png') no-repeat center center;
+  background-size: contain;
+  background-origin: content-box;
 }
 .personal-content .dropdown-list {
   background-color: #fff;

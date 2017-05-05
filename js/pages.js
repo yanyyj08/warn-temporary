@@ -1,38 +1,3 @@
-var apiUrl = 'http://jfxd.losta.net/apiv1/';
-var path = '';
-var userId;
-var accesskey;
-var projectId = localStorage.projectId;
-var projectName = localStorage.projectName;
-var orgId = '';
-const TIMEFORMATCOMPLETE = 'yyyy-MM-dd hh:mm:ss';
-const TIMEFORMAT = 'yyyy-MM-dd';
-const ALERTKIND = ['', '正常', '警报', '一般故障', '严重故障', '硬件失败'];
-const WEEKKIND = ['日', '一', '二', '三', '四', '五', '六'];
-
-toGetBasicInfo();
-
-function toGetBasicInfo() {
-    accessKey = toGetParameter('accesskey');
-    userId = toGetParameter('userid');
-    alert(accessKey);
-    alert(userId);
-    if (!accessKey || !userId) {
-        if (!localStorage.accessKey || !localStorage.userId) {
-            var href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2ef322e64147298f&redirect_uri='
-                     + encodeURI('http://jfxd.losta.net/apiv1/Auth/Wechat/Authorize')
-                     + '&response_type=code&scope=snsapi_base&state=home#wechat_redirect';
-            window.location.href = href;
-        } else {
-            accessKey = localStorage.accessKey;
-            userId= localStorage.userId;
-        }
-    } else {
-        localStorage.accessKey = accessKey;
-        localStorage.userId = userId;
-    }
-};
-
 $('.icon-back').click(function() {
     history.back(-1);
 });
@@ -625,3 +590,98 @@ var toResetProject = function() {
         $('#calendar').val(today).attr('placeholder', today);
     }
 };
+
+var toGetEquipmentList = function() {
+    var settings = {
+        url: apiUrl + 'Report/' + projectId + '/Equipment/List/' + projectId,
+        type: 'GET',
+        dataType: 'json',
+        cache: false
+    };
+    $.ajax(settings).done(function(data) {
+        if (!data.length) {
+            $('.equipment-content').html('<p>该设备下暂无项目</p>');
+            return;
+        }
+        var equipmentHtml = '';
+        $.each(data, function(index, value) {
+            equipmentHtml += '<li data-equipmentno="' + value.equipmentNo + '">'
+                           + '    <a href="javascript:;"><b></b><em>' + value.equipmentName + '</em><i class="icon-next"></i></a>'
+                           + '</li>'
+        });
+        $('#equipmentList').html(equipmentHtml);
+    });
+};
+
+$('#equipmentList').on('click', 'li', function() {
+    window.location.href = 'equipmentDetails.html?equipmentNo=' + $(this).attr('data-equipmentno');
+});
+
+var toGetEquipmentDetails = function(equipmentNo) {
+    var settings = {
+        url: apiUrl + 'Report/' + projectId + '/Equipment/' + equipmentNo,
+        type: 'GET',
+        dataType: 'json',
+        cache: false
+    };
+    $.ajax(settings).done(function(data) {
+        $('#equipmentName').html(data.equipmentName);
+        $('#equipmentGUID').html(data.equipmentGUID);
+        $('#equipmentNo').html(data.equipmentNo);
+        $('#category').html(data.categoryName);
+        $('#location').html(data.locationName);
+    });
+};
+
+var toGetEquipmentStaticData = function(equipmentNo) {
+    var settings = {
+        url: apiUrl + 'Report/' +  projectId + '/Equipment/' +  equipmentNo + '/Static',
+        type: 'GET',
+        dataType: 'json',
+        cache: false
+    };
+    $.ajax(settings).done(function(data) {
+        if (!data.length) {
+            $('#staticData').html('<p>没有更多数据</p>');
+            return;
+        }
+        var dataHtml = '';
+        $.each(data, function(index, value) {
+            dataHtml += '<li>'
+                      + '    <a href="javascript:;">' + value.categoryAttrName + '<samp>' + value.curValue + '</samp></a>'
+                      + '</li>'
+        });
+        $('#staticData').html(dataHtml);
+    });
+};
+
+var toGetEquipmentDynamicData = function(equipmentNo) {
+    var settings = {
+        url: apiUrl + 'Report/' +  projectId + '/Equipment/' +  equipmentNo + '/Dynamic',
+        type: 'GET',
+        dataType: 'json',
+        cache: false
+    };
+    $.ajax(settings).done(function(data) {
+        if (!data.length) {
+            $('#dynamicData').html('<p>没有更多数据</p>');
+            return;
+        }
+        var dataHtml = '';
+        $.each(data, function(index, value) {
+            dataHtml += '<li>'
+                      + '    <a href="javascript:;">' + value.categoryAttrName + '<samp>' + value.curValue + '</samp></a>'
+                      + '</li>'
+        });
+        $('#dynamicData').html(dataHtml);
+    });
+};
+
+$('#refresh').click(function() {
+    toGetEquipmentDynamicData(toGetParameter('equipmentNo'));
+});
+
+
+
+
+

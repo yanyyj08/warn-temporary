@@ -1,3 +1,41 @@
+var apiUrl = 'http://jfxd.losta.net/apiv1/';
+var path = '';
+var userId;
+var accesskey;
+var projectId = localStorage.projectId;
+var projectName = localStorage.projectName;
+var orgId = '';
+
+
+const TIMEFORMATCOMPLETE = 'yyyy-MM-dd hh:mm:ss';
+const TIMEFORMAT = 'yyyy-MM-dd';
+const ALERTKIND = ['', '正常', '警报', '一般故障', '严重故障', '硬件失败'];
+const WEEKKIND = ['日', '一', '二', '三', '四', '五', '六'];
+
+
+// accesskey = 'e6a9f3bf63cb43f98d7898e4eaae62d4';
+
+toGetBasicInfo();
+
+function toGetBasicInfo() {
+    accessKey = toGetParameter('accesskey');
+    userId = toGetParameter('userid');
+    if (!accessKey || !userId) {
+        if (!localStorage.accessKey || !localStorage.userId) {
+            var href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2ef322e64147298f&redirect_uri='
+                     + encodeURI('http://jfxd.losta.net/apiv1/Auth/Wechat/Authorize')
+                     + '&response_type=code&scope=snsapi_base&state=home#wechat_redirect';
+            window.location.href = href;
+        } else {
+            accessKey = localStorage.accessKey;
+            userId= localStorage.userId;
+        }
+    } else {
+        localStorage.accessKey = accessKey;
+        localStorage.userId = userId;
+    }
+};
+
 Date.prototype.Format = function(fmt) { //author: meizz   
     var o = {
         "M+": this.getMonth() + 1, //月份   
@@ -58,45 +96,14 @@ var reload = function() {
     window.location.reload();
 };
 
-var toGetParameter = function(name) {
+function toGetParameter(name) {
     var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
     var r = window.location.search.substr(1).match(reg) ?
         window.location.search.substr(1).match(reg)[2] : '';
     return r;
 };
 
-// 小黑框
-// function msgAlert(type,msg) {
-//     $('.msg_'+type).html(msg);
-//     $('.msg_'+type).animate({'top': 0},500);
-//     setTimeout(function(){$('.msg_'+type).animate({'top': '-3rem'},500)},2000);
-// }
-
-// $(document).ready(function(){
-//     var htmlstyle = "<style>body{padding:0;margin:0;}.msg{color:#FFF;width:100%;height:3rem;text-align:center;font-size:1.2rem;line-height:3rem;position:fixed;top:-3rem;z-index:20;}"
-//     +".msg_success{background-color:#1fcc6c;}"
-//     +".msg_warning{background-color:#e94b35;}"
-//     +".msg_primary{background-color:#337ab7;}"
-//     +".msg_info{background-color:#5bc0de;}</style>";
-// $('head').append(htmlstyle);
-//     $('body').prepend('<div class="msg msg_success"></div>'
-//         +'<div class="msg msg_warning"></div>'
-//         +'<div class="msg msg_primary"></div>'
-//         +'<div class="msg msg_info"></div>');
-// });
-
-
 var alertMsg = function(msg) {
-    $('.msg').html(msg);
-    $('.msg').fadeIn();
-    $('.msg').css('margin-top', '-' + $('.msg').get(0).clientHeight / 2 + 'px')
-        .css('margin-left', '-' + $('.msg').get(0).clientWidth / 2 + 'px');
-    setTimeout(function() {
-        $('.msg').fadeOut();
-    }, 2000);
-};
-
-$(function() {
     $('body').prepend('<div class="msg"></div>');
     $('.msg').css({
         'display': 'none',
@@ -114,7 +121,14 @@ $(function() {
         'border-radius': '2px',
         'background-color': 'rgba(0, 0, 0, .6)'
     });
-});
+    $('.msg').html(msg);
+    $('.msg').fadeIn();
+    $('.msg').css('margin-top', '-' + $('.msg').get(0).clientHeight / 2 + 'px')
+        .css('margin-left', '-' + $('.msg').get(0).clientWidth / 2 + 'px');
+    setTimeout(function() {
+        $('.msg').fadeOut().remove();
+    }, 2000);
+};
 
 var showOverlay = function() {
     $('body').append('<div class="overlay"></div>');
@@ -156,3 +170,11 @@ var toDoAjax = function(param, type, url, callBack, callBackData) {
 
     xhr.send(data);
 };
+
+
+$(function() {
+    $('.tabs .title').on('click', 'li', function() {
+        $(this).addClass('active').siblings().removeClass('active');
+        $('.tab-panel-item').eq($(this).index()).show().siblings().hide();
+    });
+});
