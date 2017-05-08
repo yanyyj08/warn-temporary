@@ -20,29 +20,14 @@
     <div class="wrapper">
         <div class="header">
             <a class="header-left icon-back"></a>
-            <h3>我的</h3>
+            <h3>警报设置</h3>
         </div>
         <div class="content personal-content">
-            <ul class="line-group" style="display: block; margin-bottom: 10px;">
+            <ul class="line-group" id="alertLevel" style="display: block;">
                 <li>
-                    <a href="alertList.html">我的通知<i class="icon-next"></i></a>
+                    <a href="javascript:;">一级<i class="icon-onoff"></i></a>
                 </li>
             </ul>
-            <ul class="line-group" style="display: block; margin-bottom: 10px;">
-                <li>
-                    <a href="alertSettings.html">警报设置<i class="icon-next"></i></a>
-                </li>
-            </ul>
-            <div class="dropdown-list">
-                <div class="dropdown-item">
-                    <h3 class="title" data-status="0">选择项目<em id="choosedProject"></em><i class="icon-bottom"></i></h3>
-                    <ul id="projectList">
-                        <!-- <li>
-                            <a href="javascript:;"><em>报警标题</em><span>2017-01-01 00:00:00</span><i class="icon-next"></i></a>
-                        </li> -->
-                    </ul>
-                </div>
-            </div>
         </div>
         <div class="footer footer-sty01">
             <ul class="clearfix">
@@ -57,10 +42,7 @@
     <script src="../js/pages.js"></script>
     <script type="text/javascript">
     $(function() {
-        toGetProjectList();
-        if (projectName) {
-            $('#choosedProject').html('(' + projectName + ')');
-        }
+        toGetAlertLevel();
     });
     </script>
 </body>

@@ -35,6 +35,7 @@ $('#projectList').on('click', 'li', function() {
     localStorage.projectId = $(this).attr('data-projectid');
     localStorage.projectName = $(this).find('a em').html();
     $(this).addClass('active').siblings().removeClass('active');
+    $('#choosedProject').html('(' + localStorage.projectName + ')');
     alertMsg('项目选择成功！');
     setTimeout(function() {
         window.location.href = '../index.html';
@@ -108,6 +109,7 @@ var toGetAlertList = function(data, proId) {
         data: data
 	};
 	$.ajax(settings).done(function(data) {
+        console.log(data)
         $('.alert-filter').slideUp();
         hideOverlay();
         if (!data.rows.length) {
@@ -681,7 +683,56 @@ $('#refresh').click(function() {
     toGetEquipmentDynamicData(toGetParameter('equipmentNo'));
 });
 
+var toGetAlreadyLevel = function() {
+    var settings = {
+        url: apiUrl + 'Basis/User/Filter/' + userId,
+        type: 'GET',
+        dataType: 'json',
+        cache: false
+    };
+    $.ajax(settings).done(function(data) {
+        $.each(data.config.AcceptAlertKinds, function(index, value) {
+            $('#alertLevel li[data-no=' + value + ']').addClass('on');
+        });
+    });
+};
 
+var toGetAlertLevel = function() {
+    var settings = {
+        url: apiUrl + 'Common/AlertKind/List',
+        type: 'GET',
+        dataType: 'json',
+        cache: false
+    };
+    $.ajax(settings).done(function(data) {
+        var levelHtml = '';
+        $.each(data, function(index, value) {
+            levelHtml += '<li data-no="' + value.alertKindNo + '">'
+                       + '    <a href="javascript:;">' + value.alertKindName + '<i class="icon-onoff"></i></a>'
+                       + '</li>'
+        });
+        $('#alertLevel').html(levelHtml);
+        toGetAlreadyLevel();
+    });
+};
 
-
+$('#alertLevel').on('click', '.icon-onoff', function() {
+    var $li = $(this).parents('li');
+    if ($li.hasClass('on')) {
+        $li.removeClass('on');
+    } else {
+        $li.addClass('on');
+    }
+    var levelArr = [];
+    $('#alertLevel .on').each(function() {
+        levelArr.push(Number($(this).attr('data-no')));
+    });
+    var data = {
+        userId: userId,
+        config: {
+            AcceptAlertKinds: levelArr
+        }
+    }
+    toDoAjax(data, 'PUT', apiUrl + 'Basis/User/Config/' + userId, null);
+});
 

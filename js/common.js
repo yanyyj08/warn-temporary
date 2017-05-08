@@ -1,7 +1,7 @@
 var apiUrl = 'http://jfxd.losta.net/apiv1/';
 var path = '';
 var userId;
-var accesskey;
+var accessKey;
 var projectId = localStorage.projectId;
 var projectName = localStorage.projectName;
 var orgId = '';
@@ -13,7 +13,8 @@ const ALERTKIND = ['', '正常', '警报', '一般故障', '严重故障', '硬�
 const WEEKKIND = ['日', '一', '二', '三', '四', '五', '六'];
 
 
-// accesskey = 'e6a9f3bf63cb43f98d7898e4eaae62d4';
+// accessKey = '2f229bfc5a224af7a01cee2dddad1ef5';
+// userId = 'yan';
 
 toGetBasicInfo();
 
@@ -161,7 +162,7 @@ var toDoAjax = function(param, type, url, callBack, callBackData) {
     });
 
     xhr.open(type, url);
-    if (accesskey) {
+    if (accessKey) {
         xhr.setRequestHeader('accesskey', accessKey);
     }
     // xhr.setRequestHeader('userId', userId);

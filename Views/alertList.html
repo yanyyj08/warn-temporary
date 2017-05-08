@@ -25,6 +25,8 @@
             <h3 id="currentProjectName"></h3>
             <a class="header-right icon-menu" id="showFilter" data-status="0"></a>
         </div>
+            <div id="datePlugin"></div>
+        
         <div class="alert-filter">
             <div>
                 <em>项目</em>
@@ -38,6 +40,12 @@
                     <option value="">全部</option>
                 </select>
             </div>
+            <div class="calendar">
+                <div class="calendar-content">
+                    <input type="text" id="calendar">
+                    <span><i class="icon-calendar"></i></span>
+                </div>
+            </div>
             <input type="hidden" id="dateFrom" name="dateFrom">
             <input type="hidden" id="dateTo" name="dateTo">
             <div>
@@ -47,7 +55,6 @@
             </div>
         </div>
         <div class="content alert-content">
-            <div id="datePlugin"></div>
             <ul id="alertList"></ul>
         </div>
         <div class="footer footer-sty01">

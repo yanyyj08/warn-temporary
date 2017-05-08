@@ -60,8 +60,15 @@
 	}
 }
 
-.icon-next { position: absolute; width: 20px; height: 20px; background: url(../img/icon-next.png) no-repeat center center; background-size: contain; }
-.icon-bottom { position: absolute; width: 14px; height: 14px; top: 10px; right: 10px; background: url(../img/icon-bottom.png) no-repeat center; background-size: contain; }
+.icon-next, .icon-bottom, .icon-onoff { position: absolute; }
+
+.icon-next { width: 20px; height: 20px; background: url(../img/icon-next.png) no-repeat center center; background-size: contain; }
+.icon-bottom { width: 14px; height: 14px; top: 10px; right: 10px; background: url(../img/icon-bottom.png) no-repeat center; background-size: contain; }
+.icon-onoff { top: 0; width: 40px; height: 34px; right: 10px; background: url(../img/icon-off.png) no-repeat center; background-size: contain;
+	&.on { background: url(../img/icon-on.png) no-repeat center; background-size: contain; }
+}
+
+
 
 .dotted-line { border: 0; border-top: 1px dashed #ccc; }
 
@@ -75,6 +82,7 @@
 
  // 下拉菜单
 .line-group { display: block; padding-left: 10px; border-top: 1px solid @color-border; border-bottom: 1px solid @color-border; background-color: #fff;
+	> p { padding-right: 10px; text-align: center; color: #999; font-size: 14px; }
 	> li { position: relative; box-sizing: border-box; line-height: 34px; border-top: 1px dotted @color-border;
 		> a { display: block; font-size: 14px;
 			> b { position: absolute; width: 14px; height: 14px; top: 10px; left: 0; background: url(../img/icon-choose-off.png) no-repeat center; background-size: contain; }
@@ -83,6 +91,7 @@
 			> samp { right: 10px; }
 			> small { right: 10px; font-size: 12px; }
 			.icon-next { width: 14px; height: 14px; right: 10px; top: 10px; }
+
 		}
 		&.active {
 			> a {
@@ -90,12 +99,17 @@
 				> em { color: @color-base-blue; }
 			}
 		}
+		&.on {
+			.icon-onoff { background: url(../img/icon-on.png) no-repeat center; background-size: contain; }
+		}
 		&:first-child { border-top: 0; }
 	}
 }
 .dropdown-list {
 	.dropdown-item { margin-top: -1px; border-top: 1px solid #ddd; border-bottom: 1px solid @color-border;
-		.title { position: relative; padding-left: 10px; line-height: 34px; font-size: 14px; }
+		.title { position: relative; padding-left: 10px; line-height: 34px; font-size: 14px;
+			> em { margin-left: 8px; color: @color-base-blue; }
+		}
 		> ul { .line-group; display: none; border-bottom: 0; }
 	}
 }
@@ -103,7 +117,7 @@
 .alert-filter { display: none; position: absolute; z-index: 200; top: 50px; left: 0; right: 0; padding: 10px; border-top: 1px solid @color-border; background-color: @color-blue-darker;
 	> div { position: relative; line-height: 34px; font-size: 14px; color: #fff;
 		// .calendar-content { display: inline-block; }
-		select { padding-left: 10px; line-height: 20px; font-size: 12px; }
+		select { padding-left: 10px; line-height: 24px; font-size: 12px; }
 		> a { position: absolute; bottom: 0; right: 10px; width: 34px; height: 24px; line-height: 24px; text-align: center; border-radius: 2px; background-color: #fff;
 			.icon-search { font-size: 14px; padding: 0 10px; background: url('../img/icon-search02.png') no-repeat center; background-size: contain; }
 		}

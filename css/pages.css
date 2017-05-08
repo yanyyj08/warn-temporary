@@ -160,20 +160,35 @@
   background: url(../img/icon-search.png) no-repeat center;
   background-size: contain;
 }
-.icon-next {
+.icon-next,
+.icon-bottom,
+.icon-onoff {
   position: absolute;
+}
+.icon-next {
   width: 20px;
   height: 20px;
   background: url(../img/icon-next.png) no-repeat center center;
   background-size: contain;
 }
 .icon-bottom {
-  position: absolute;
   width: 14px;
   height: 14px;
   top: 10px;
   right: 10px;
   background: url(../img/icon-bottom.png) no-repeat center;
+  background-size: contain;
+}
+.icon-onoff {
+  top: 0;
+  width: 40px;
+  height: 34px;
+  right: 10px;
+  background: url(../img/icon-off.png) no-repeat center;
+  background-size: contain;
+}
+.icon-onoff.on {
+  background: url(../img/icon-on.png) no-repeat center;
   background-size: contain;
 }
 .dotted-line {
@@ -207,6 +222,12 @@
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
   background-color: #fff;
+}
+.line-group > p {
+  padding-right: 10px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
 }
 .line-group > li {
   position: relative;
@@ -258,6 +279,10 @@
 .line-group > li.active > a > em {
   color: #3fa7dc;
 }
+.line-group > li.on .icon-onoff {
+  background: url(../img/icon-on.png) no-repeat center;
+  background-size: contain;
+}
 .line-group > li:first-child {
   border-top: 0;
 }
@@ -272,6 +297,10 @@
   line-height: 34px;
   font-size: 14px;
 }
+.dropdown-list .dropdown-item .title > em {
+  margin-left: 8px;
+  color: #3fa7dc;
+}
 .dropdown-list .dropdown-item > ul {
   display: block;
   padding-left: 10px;
@@ -280,6 +309,12 @@
   background-color: #fff;
   display: none;
   border-bottom: 0;
+}
+.dropdown-list .dropdown-item > ul > p {
+  padding-right: 10px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
 }
 .dropdown-list .dropdown-item > ul > li {
   position: relative;
@@ -331,6 +366,10 @@
 .dropdown-list .dropdown-item > ul > li.active > a > em {
   color: #3fa7dc;
 }
+.dropdown-list .dropdown-item > ul > li.on .icon-onoff {
+  background: url(../img/icon-on.png) no-repeat center;
+  background-size: contain;
+}
 .dropdown-list .dropdown-item > ul > li:first-child {
   border-top: 0;
 }
@@ -353,7 +392,7 @@
 }
 .alert-filter > div select {
   padding-left: 10px;
-  line-height: 20px;
+  line-height: 24px;
   font-size: 12px;
 }
 .alert-filter > div > a {
